@@ -31,7 +31,7 @@ Thống Kế Số Lượt View Website
 
       if($day !=  $row->txtday){
         DB::table('countvisit')->where('id',1)->update(
-        array('txtday'=>$day, 'day'=>0)
+        array('txtday'=>$day, 'today'=>0)
         );
       }
       if($week !=  $row->txtweek){
