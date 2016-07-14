@@ -21,6 +21,7 @@ Route::group(['middleware' => ['web']], function () {
 		Route::post('getchangepassword',['as'=>'changepassword','uses'=>'UserController@changepassword']);
     	Route::get('plugin',function(){return view('admin.general.plugin'); });
         Route::get('sitemap', function () { return view('admin.sitemap.sitemap');});
+        Route::get('managephoto', function () { return view('admin.managephoto.photo');});
     	Route::resource('groupslider','GroupFlexSliderController');
     	Route::resource('slider','FlexSliderController');
     	Route::resource('article','ArticleController');

@@ -169,7 +169,7 @@ $(function() {
  /**** add more tag****/
  $(document).ready(function(){
     $('#show_all_tag').click(function(){
-        $('#list_tag').show();
+        $('#list_tag').toggle();
     });
  });
 

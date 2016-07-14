@@ -10,6 +10,7 @@ use App\FlexSliderModel;
 use App\GroupFlexSliderModel;
 use Input;
 use File;
+
 class FlexSliderController extends Controller
 {
       public function index()
@@ -33,15 +34,18 @@ class FlexSliderController extends Controller
         $slider->order = 0;
         $slider->group_id = $request->txtgroup_id;
         $slider->published = $request->txtpublished;
-        $request->file('txtimage')->move('public/image_upload/slider/', $file_name);
+
         if(Input::hasFile('txtimage_box1')){
         $file_name1 = $request->file('txtimage_box1')->getClientOriginalName();
         $request->file('txtimage_box1')->move('public/image_upload/slider/slider_box/', $file_name1);
+        $request->file('txtimage')->move('public/image_upload/slider/', $file_name);
         $slider->img_box1 = $file_name1;
         $slider->box1 = $request->txtbox1;
+        }else{
+            $request->file('txtimage')->move('public/image_upload/slider/', $file_name);
         }
-        $slider->save();
         
+        $slider->save();
         
      return redirect()->route('admin.slider.index')->with(['flash_message'=>'Thêm Thành Công']);
     }
@@ -76,7 +80,9 @@ class FlexSliderController extends Controller
         $slider->img_box1 = $file_name1;
         $slider->box1 = $request->txtbox1;
         File::delete(public_path().'/image_upload/slider/slider_box/'.$request->txtimage_box1_old);
-        } 
+        } else{
+           $slider->box1 = $request->txtbox1; 
+        }
 
         $slider->save();
 
@@ -85,8 +91,13 @@ class FlexSliderController extends Controller
     public function destroy($id)
     {   
     $slider =  FlexSliderModel::findOrFail($id);
-    File::delete(public_path().'/image_upload/slider/'.$slider->image);
+    $slider_list = FlexSliderModel::where('image',$slider->image)->count();
+    $slider_box = FlexSliderModel::where('image',$slider->img_box1)->count();
+    if($slider_list ==1){
+    File::delete(public_path().'/image_upload/slider/'.$slider->image);}
+    if($slider_box ==1){
     File::delete(public_path().'/image_upload/slider/slider_box/'.$slider->img_box1);
+    }
     $slider->delete();
     return redirect()->route('admin.slider.index')->with(['flash_message'=>'Xóa Thành Công']);
 	}

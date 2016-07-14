@@ -4,7 +4,7 @@ Sửa Bài Post
 @stop
 @section("content_admin") 
   
-       <div class="col-lg-12">
+  <div class="col-lg-12">
   <h1 class="page-header">Sửa Bài Post</h1>
   </div>
   <!-- /.col-lg-12 -->
@@ -63,7 +63,7 @@ Sửa Bài Post
              <option value="0">Không Thuộc Nhóm Nào</option>
              @foreach($cate_temp as $value)
               @if($article_temp['category_id'] == $value->id)
-               <option value="{!! $value->id !!}" cheched="checked">{!! $value->name !!}</option>
+              <option value="{!! $value->id !!}" cheched="checked">{!! $value->name !!}</option>
               @else
               <option value="{!! $value->id !!}">{!! $value->name !!}</option>
               @endif
@@ -74,22 +74,30 @@ Sửa Bài Post
          <div class="form-group">
             <label class="checkbox icheck">
            @if($article_temp['published'] == "yes")
-            <input type="checkbox" name="txtpublished" checked value="yes" >&nbsp;&nbsp; Xuất bản
+            <input type="checkbox" name="txtpublished" checked="checked" value="yes" >&nbsp;&nbsp; Xuất bản
             @else
             <input type="checkbox" name="txtpublished" value="yes" >&nbsp;&nbsp; Xuất bản
             @endif
             </label>
         </div>
+
         <div class="form-group">
            <a id="show_all_tag">Hiển Thị Tất Cả Thẻ Tags</a>
          </div>
             <div class="form-group">
            <div id="list_tag">
+           @foreach($tag_article as $value1)
+              <label class="checkbox icheck">
+                <input type="checkbox" name="txthastag[]" checked="checked" value="{!! $value1->tag_id !!}">&nbsp;&nbsp;{!! $value1->text_tag !!}
+              </label>
+            @endforeach
+
             @foreach($tag_temp as $value)
               <label class="checkbox icheck">
                 <input type="checkbox" name="txttag[]" value="{!! $value->id !!}">&nbsp;&nbsp;{!! $value->name !!}
               </label>
             @endforeach
+
            </div>
          </div>
 

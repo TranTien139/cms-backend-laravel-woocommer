@@ -21,7 +21,6 @@
 </ul>
 
 <?php 
-	
 	$day = date("d");
 	$month = date('m');
 	$week = date('w');
@@ -64,6 +63,7 @@
 
 		}
 	}
+
 ?>
 </body>
 </html>

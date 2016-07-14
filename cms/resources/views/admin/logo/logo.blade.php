@@ -17,7 +17,7 @@ Thêm Bài Post
                   <i class="fa fa-paperclip"></i> Ảnh Logo
                  <input type="file" name="txtlogo" value="" id="previewFileLogo"><br>
                 </div>
-                <input type="hidden" name="txtlogo1" value="" ><br>
+                <input type="hidden" name="txtlogo1" value="{!! $logo_temp['image'] !!}" ><br>
                 <p class="help-block">Max. 32MB</p>
                 <img src="{!! asset('public/image_upload/logo/'.$logo_temp['image']) !!}" id="image_logo" class="image_logo" height="200" width="auto" alt="Ảnh Logo">
            </div>

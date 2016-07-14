@@ -9,7 +9,7 @@ Sơ đồ trang web
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                        <?php $data = App\MenuModel::select('id','title','alias','parent_id')->orderBy('order','DESC')->get()->toArray(); ?>
+                        <?php $data = App\MenuModel::select('id','title','alias','parent_id')->orderBy('order','ASC')->get()->toArray(); ?>
                         <ul>
                             @foreach($data as $values)
                                 @if($values['parent_id'] == 0)

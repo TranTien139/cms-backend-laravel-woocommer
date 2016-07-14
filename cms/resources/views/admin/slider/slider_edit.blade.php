@@ -50,7 +50,7 @@ Sửa Slider
             <label>Thêm Các Box Hiển Thị Trên Slide</label>
           
             <div class="form-group">
-              <input type="text" name="txtbox1" class="form-control">
+              <input type="text" name="txtbox1" value="{!! $slider_temp['box1'] !!}" class="form-control">
             </div>
 
             <div class="border_line"></div>

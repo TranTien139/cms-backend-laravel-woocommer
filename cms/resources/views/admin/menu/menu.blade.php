@@ -73,8 +73,9 @@ Thêm nhóm slider
                      
                 </li>
                  <?php $menu_temp2 = DB::table('menus')->orderBy('order','ASC')->where('parent_id',$item->id)->get(); ?>
-                   @foreach($menu_temp2 as $item2)
+                   @if($menu_temp2 != null)
                    <ul>
+                   @foreach($menu_temp2 as $item2)
                     <li>
                     <a href="">{!! $item2->title !!}</a>
                     <div>
@@ -109,8 +110,9 @@ Thêm nhóm slider
                 </li>
 
                 <?php $menu_temp3 = DB::table('menus')->orderBy('order','ASC')->where('parent_id',$item2->id)->get(); ?>
-                   @foreach($menu_temp3 as $item3)
+                   @if($menu_temp3 != null)
                    <ul>
+                   @foreach($menu_temp3 as $item3)
                     <li>
                     <a href="">{!! $item3->title !!}</a>
                     <div>
@@ -143,14 +145,15 @@ Thêm nhóm slider
                          {{ Form::close() }} 
                     </div>
                 </li>
-                
+                 @endforeach()
                 </ul>
-                   @endforeach()
-
+                @endif
+                 @endforeach()
                 </ul>
-                   @endforeach()
-                @endforeach()
+                @endif
+                  @endforeach()
             </ul>
+             
         </div>
     </div>
             

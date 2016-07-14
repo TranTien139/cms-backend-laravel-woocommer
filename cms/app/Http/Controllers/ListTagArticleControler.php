@@ -23,7 +23,7 @@ class ListTagArticleControler extends Controller
         $article_temp->name = $request->txtname;
         $article_temp->alias = changeTitle($request->txtname);
         $article_temp->save();
-        return redirect('admin/article/create')->with(['flash_message'=>'Thêm thành công']);
+        return redirect()->back();
     }
     public function show($id)
     {
@@ -39,7 +39,7 @@ class ListTagArticleControler extends Controller
         $article_temp->name = $request->txtname;
         $article_temp->alias = changeTitle($request->txtname);
         $article_temp->save();
-       return redirect('admin/article/create')->with(['flash_message'=>'Sửa thành công']);
+        return redirect()->back();
     }
     public function destroy($id)
     {   

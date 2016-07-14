@@ -296,7 +296,7 @@
         </li>
 
         <li>
-          <a href="#">
+          <a href="{!! url('admin/managephoto') !!}">
             <i class="fa fa-calendar"></i> <span>Quản Lý Ảnh</span>
           </a>
         </li>
