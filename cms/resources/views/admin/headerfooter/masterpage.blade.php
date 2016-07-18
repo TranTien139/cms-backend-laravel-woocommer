@@ -17,7 +17,7 @@
             @if (count($errors) > 0)
             <div class="alert alert-danger">
                 <ul>
-                    @foreach ($errors->all() as $error)
+                    @foreach ( $errors->all() as $error)
                         <li>{!! $error !!}</li>
                     @endforeach
                 </ul>
@@ -91,7 +91,7 @@
 
     @if(Session::has('flash_message'))
         <div class="alert alert_message alert-success">
-        {{ Session::get('flash_message') }}
+        {!! Session::get('flash_message') !!}
         </div>
    @endif
 </div>

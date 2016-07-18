@@ -53,6 +53,14 @@ Route::group(['middleware' => ['web']], function () {
             $value->delete();
             return redirect()->back();
             });
+
+        Route::get('deletetag_article/{id}/{id1}',function(){
+            $id = Request::segment(3);
+            $id1 = Request::segment(4);
+            $value = DB::table('articles_tags')->where("article_id",$id1)->where('tag_id',$id);
+            $value->delete();
+            return redirect()->back();
+            });
         
         Route::get('password/reset/{token}',['as'=>'getReset','uses'=>'Auth\PasswordController@getReset']);
         Route::post('password/reset',['as'=>'postReset','uses'=>'Auth\PasswordController@postReset']);

@@ -86,16 +86,16 @@ Sửa Bài Post
          </div>
             <div class="form-group">
            <div id="list_tag">
-           @foreach($tag_article as $value1)
-              <label class="checkbox icheck">
-                <input type="checkbox" name="txthastag[]" checked="checked" value="{!! $value1->tag_id !!}">&nbsp;&nbsp;{!! $value1->text_tag !!}
-              </label>
-            @endforeach
-
+           
             @foreach($tag_temp as $value)
+              <?php $istag = DB::table('articles_tags')->where('tag_id',$value->id)->where('article_id',$article_temp['id'])->count(); ?>
+              @if($istag)
+              <a href="{!! url('admin/deletetag_article',[$value->id,$article_temp['id']]) !!}">Xóa &nbsp;&nbsp;<span style="color:#444;">{!! $value->name !!}</span></a><br>
+              @else
               <label class="checkbox icheck">
                 <input type="checkbox" name="txttag[]" value="{!! $value->id !!}">&nbsp;&nbsp;{!! $value->name !!}
               </label>
+              @endif
             @endforeach
 
            </div>

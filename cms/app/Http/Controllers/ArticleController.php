@@ -63,8 +63,7 @@ class ArticleController extends Controller
     $cate_temp = CategoriesArticleModel::all();
     $tag_temp = ListTagArticleModel::all();
     $article_temp =  ArticleModel::findOrFail($id);
-    $tag_article =  ArticleTagModel::where('article_id',$id)->get();
-    return view('admin.article.article_edit',compact('article_temp','cate_temp','tag_temp','tag_article'));
+    return view('admin.article.article_edit',compact('article_temp','cate_temp','tag_temp'));
     }
     public function update($id,Request $request)
     {
@@ -86,23 +85,22 @@ class ArticleController extends Controller
           $article_temp->image = $request->txtimage1;
         }
         $article_temp->save();
-
+        
+        
         if(Input::has('txttag')){
             foreach(Input::get('txttag') as $value) {
-                $newtag = new ArticleTagModel;
-                $tag_list =  ListTagArticleModel::findOrFail($value);
-                $newtag->article_id = $article_temp->id;
-                $newtag->tag_id = $value;
-                $newtag->text_tag = $tag_list->name;
-                $newtag->tag_alias = $tag_list->alias;
-                $newtag ->save();
-            }
+            $tag = ArticleTagModel::where('article_id',$id)->where('tag_id',$value)->count();
+            if($tag){
+
+            }else{
+            $newtag = new ArticleTagModel;
+            $tag_list =  ListTagArticleModel::findOrFail($value);
+            $newtag->article_id = $id;
+            $newtag->tag_id = $value;
+            $newtag->text_tag = $tag_list->name;
+            $newtag->tag_alias = $tag_list->alias;
+            $newtag ->save();
         }
-        
-        foreach(Input::get('txthastag') as $value) {
-        if(!Input::has('txthastag')){
-            $tag = ArticleTagModel::where('article_id',$id)->where('tag_id',$value);
-            $tag ->delete();
         }
         }
 
