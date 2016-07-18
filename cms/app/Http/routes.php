@@ -22,7 +22,9 @@ Route::group(['middleware' => ['web']], function () {
     	Route::get('plugin',function(){return view('admin.general.plugin'); });
         Route::get('sitemap', function () { return view('admin.sitemap.sitemap');});
         Route::get('managephoto', function () { return view('admin.managephoto.photo');});
-    	Route::resource('groupslider','GroupFlexSliderController');
+    	Route::get('systemcomment',['as'=>'getcomment','uses'=>'CommentController@getcomment']);
+        Route::post('systemcomment',['as'=>'postcomment','uses'=>'CommentController@postcomment'] );
+        Route::resource('groupslider','GroupFlexSliderController');
     	Route::resource('slider','FlexSliderController');
     	Route::resource('article','ArticleController');
         Route::resource('htmlblock','HtmlBlockController');

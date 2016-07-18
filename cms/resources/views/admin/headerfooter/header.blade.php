@@ -302,7 +302,7 @@
         </li>
 
         <li>
-          <a href="#">
+          <a href="{!! url('admin/systemcomment') !!}">
             <i class="fa fa-calendar"></i> <span>Hệ Thống Comment</span>
           </a>
         </li>

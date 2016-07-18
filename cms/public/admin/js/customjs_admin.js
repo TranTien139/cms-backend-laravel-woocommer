@@ -173,3 +173,49 @@ $(function() {
     });
  });
 
+/****system commment****/
+
+function refreshCaptcha()
+{
+    var img = document.images['captchaimg'];
+    img.src = img.src.substring(0,img.src.lastIndexOf("?"))+"?rand="+Math.random()*1000;
+}
+
+/**** post comment ***/
+
+  $(document).ready(function(){
+   $('#postcomment').submit(function (e){
+       e.preventDefault();
+       var token = $("input[name='_token']").val();
+       var code_captcha = $('#6_letters_code').val();
+       var name_comment = $('#name_comment').val();
+       var content_comment = $('#content_comment').val();
+       var reply_comment = $('#reply_comment').val();
+       $.ajax({
+        url: 'systemcomment',
+        type:'POST',
+        cache:false,
+        data:{"_token":token,"code_captcha":code_captcha,"name_comment":name_comment, "content_comment":content_comment, "reply_comment":reply_comment },
+        success:function(data){
+            if($.trim(data) === 'oke'){
+                $('#name_comment').val('');
+               $('#content_comment').val('');
+               $('#6_letters_code').val('');
+               $('#reply_comment').val(0);
+               alert('bình luận thành công');
+            }else{
+                alert('bạn nhập sai captcha hoặc bạn chưa nhập tên và nội dung bình luận !');
+            }
+            }
+       });
+   });
+});
+
+  /****reply comment ***/
+
+  function reply_comment($id ,$name){
+    var html='';
+    html = html + "Trả lời :" + $name;
+    $('#cmt_with').html(html);
+    $('#reply_comment').val($id);
+  }
