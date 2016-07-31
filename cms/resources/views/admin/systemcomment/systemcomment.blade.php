@@ -19,7 +19,7 @@ session_start();
 <?php $result3 = DB::table('systemcommment')->where('reply_id',0)->get(); ?>
 @foreach( $result3 as $row3 ) 
   <div id="maincomm">
-  <img src="{!! $row3->images !!}">
+  <div class="avar_comment">{!! $row3->images !!}</div>
   <p id="name">{!! $row3->name !!}</p>
   <b class="nicetime"><?php echo nicetime($row3->created_at) ?></b>
   <p>{!! $row3->content !!}</p>
@@ -28,7 +28,7 @@ session_start();
   <?php  $result4 = DB::table('systemcommment')->where('reply_id',$row3->id)->get(); ?>
       @foreach( $result4 as $row4 ) 
         <div id="subcomm">
-        <img src="{!! $row4->images !!}">
+        <div class="avar_sub">{!! $row4->images !!}</div>
         <p id="name">{!! $row4->name !!}</p>
         <b class="nicetime"><?php echo nicetime($row4->created_at) ?></b>
         <p>{!! $row4->content !!}</p>

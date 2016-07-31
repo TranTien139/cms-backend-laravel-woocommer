@@ -74,6 +74,7 @@
 </script>
      </body>
 </html>
+
 @else
 
 @include('admin.headerfooter.header')

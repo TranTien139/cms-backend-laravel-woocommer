@@ -198,7 +198,7 @@ function refreshCaptcha()
         data:{"_token":token,"code_captcha":code_captcha,"name_comment":name_comment, "content_comment":content_comment, "reply_comment":reply_comment },
         success:function(data){
             if($.trim(data) === 'oke'){
-                $('#name_comment').val('');
+               $('#name_comment').val('');
                $('#content_comment').val('');
                $('#6_letters_code').val('');
                $('#reply_comment').val(0);

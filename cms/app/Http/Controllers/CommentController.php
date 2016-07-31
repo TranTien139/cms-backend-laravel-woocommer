@@ -19,7 +19,8 @@ class CommentController extends Controller
        		$com = new CommentModel;
        		$com->name = Request::get("name_comment");
        		$com->content = Request::get("content_comment");
-       		$com->images = "http://www.gravatar.com/avatar.php";
+          $avatar = str_split(Request::get("name_comment"));
+       		$com->images = $avatar[0];
        		$id_rep = Request::get("reply_comment");
        		$com->reply_id = $id_rep;
        		if($id_rep !=0){
