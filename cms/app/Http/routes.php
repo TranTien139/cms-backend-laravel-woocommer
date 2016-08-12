@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middlewareGroups' => ['web']], function () {
     Route::group(['prefix'=>'admin'],function(){
 		Route::get('/',['as'=>'getlogin','uses'=>'UserController@getlogin']);
 		Route::get('/logout',['as'=>'getlogout','uses'=>'UserController@getlogout']);

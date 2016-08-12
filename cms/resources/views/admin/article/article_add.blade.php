@@ -46,7 +46,7 @@ Thêm Bài Post
 
             <div class="form-group">
                 <label>Tác Giả</label>
-                <input class="form-control" name="txtauth" placeholder="Nhập tác giả" />
+                <input class="form-control" name="txtauth" value="{!! Auth::user()->name !!}" placeholder="Nhập tác giả" />
             </div>
 
              <div class="form-group">

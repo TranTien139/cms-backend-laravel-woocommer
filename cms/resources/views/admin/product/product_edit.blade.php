@@ -71,8 +71,8 @@ Sửa Sản Phẩm
                             </div>
 
                              <div class="form-group">
-                                <label>thuộc nhóm sản phẩm</label>
-                                <select class="form-control" name="txtcategory">
+                                <label>Tình trạng</label>
+                                <select class="form-control" name="txtstatus">
                                     @if($product_temp['status'] == "isstore")
                                     <option value="isstore" selected="selected">còn hàng</option>
                                     <option value="emptystore">hết hàng</option>

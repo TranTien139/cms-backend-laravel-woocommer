@@ -33,7 +33,7 @@
         return $str;
      }
 
-     function cate_parent($data,$parent = 0,  $str ="",$select=0){
+    function cate_parent($data,$parent = 0,  $str ="",$select=0){
         foreach ($data as $value) {
             $id= $value["id"];
             $name = $value["name"];
@@ -59,6 +59,19 @@
             }else {
             echo "<option value = '$id'>$str $name</option>";
             } 
+            }
+        }
+
+        function cate_article($data,$parent = 0,  $str ="",$select=0){
+            foreach ($data as $value) {
+                $id= $value["id"];
+                $name = $value["name"];
+                if($select !=0 && $id== $select)
+                {
+                echo "<option value ='$id' selected='selected'>$str $name</option>";
+               }else {
+                echo "<option value = '$id'>$str $name</option>";
+               }
             }
         }
 

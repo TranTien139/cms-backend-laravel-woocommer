@@ -1,6 +1,6 @@
 
 /*** falash message***/
-$(".alert_message").delay(3000).slideUp();
+$(".alert_message").delay(5000).slideUp();
 
 /***confirm delete item ***/
 function confirmdelete(msg) {

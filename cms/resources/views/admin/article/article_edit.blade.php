@@ -61,13 +61,7 @@ Sửa Bài Post
         <div class="form-group">
            <select name="txtcategory_id" class="form-control">
              <option value="0">Không Thuộc Nhóm Nào</option>
-             @foreach($cate_temp as $value)
-              @if($article_temp['category_id'] == $value->id)
-              <option value="{!! $value->id !!}" cheched="checked">{!! $value->name !!}</option>
-              @else
-              <option value="{!! $value->id !!}">{!! $value->name !!}</option>
-              @endif
-             @endforeach
+             <?php cate_article($cate_temp, 0, "", $article_temp['category_id']); ?>
            </select>
          </div>
 

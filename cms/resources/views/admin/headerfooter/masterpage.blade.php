@@ -10,6 +10,10 @@
     <meta name="author" content="">
     {!! Html::style('public/admin/css/bootstrap.min.css') !!}
     {!! Html::style('public/admin/plugins/iCheck/square/blue.css') !!}
+    <style type="text/css">
+        .alert{border-radius: 0px;}
+        .errror-login{position: fixed;  width: 350px; right: 10px; top: 10px;}
+    </style>
 
 </head>
 <body>

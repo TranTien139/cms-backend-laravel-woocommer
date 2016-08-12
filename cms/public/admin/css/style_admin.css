@@ -9,7 +9,8 @@ body{
     border: 0;
     border-top: 1px solid #444;}
 ul{list-style: none;}
-
+.alert{border-radius: 0px;}
+.alert_message{width: 400px; bottom: 20px; position: fixed; right: 20px;}
 /***** menu ****/
  li{list-style: none}
             #menu_wrapper{

@@ -33,7 +33,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; 2016 <a href="#">Tran Tien</a>.</strong> All rights
+    <strong>Copyright &copy; 2016 <a href="https://www.facebook.com/profile.php?id=100002957322179" target="_blank">Tran Tien</a>.</strong> All rights
     reserved.
   </footer>
 

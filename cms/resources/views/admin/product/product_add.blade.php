@@ -69,7 +69,7 @@ Thêm Sản Phẩm
                             </div>
                             <div class="form-group">
                                 <label>Tình Trạng</label>
-                                <select class="form-control" name="txtorder">
+                                <select class="form-control" name="txtstatus">
                                     <option value="istore">còn hàng</option>
                                     <option value="emptystore">hết hàng</option>
                                 </select>
