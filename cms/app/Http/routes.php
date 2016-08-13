@@ -69,6 +69,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
         Route::get('password/email',['as'=>'getEmail','uses'=>'Auth\PasswordController@getEmail']);
         Route::post('password/email',['as'=>'postEmail','uses'=>'Auth\PasswordController@postEmail']);
         Route::post('changelanguage',['as'=>'postLaguage','uses'=>'Languages\LanguageController@postLaguage']);
+        Route::any('{catchall}', function() { return Response::view('admin.404.notfoundpage', array(), 404); })->where('catchall', '.*');
     });
 });
 
